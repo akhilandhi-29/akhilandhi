@@ -164,20 +164,20 @@ export function SnakeGame({ onScoreUpdate }: SnakeGameProps) {
     <div className="flex flex-col items-center w-full max-w-lg">
       <div className="flex justify-between items-center w-full mb-4 px-4 py-2 border-4 border-[#ff00ff] bg-black shadow-[8px_8px_0px_0px_#00ffff]">
         <div className="flex flex-col">
-          <span className="text-lg text-[#00ffff] animate-pulse">&gt; MEM_ALLOC</span>
-          <span className="text-4xl font-bold text-[#ff00ff] glitch-text" data-text={score.toString().padStart(4, '0')}>
+          <span className="text-lg text-[#00ffff]">&gt; MEM_ALLOC</span>
+          <span className="text-4xl font-bold text-[#ff00ff]">
             {score.toString().padStart(4, '0')}
           </span>
         </div>
         <div className="flex flex-col items-end">
-          <span className="text-lg text-[#00ffff] animate-pulse">&gt; PEAK_MEM</span>
+          <span className="text-lg text-[#00ffff]">&gt; PEAK_MEM</span>
           <span className="text-4xl font-bold text-[#ff00ff]">
             {highScore.toString().padStart(4, '0')}
           </span>
         </div>
       </div>
 
-      <div className="relative w-full aspect-square border-4 border-[#00ffff] shadow-[8px_8px_0px_0px_#ff00ff] bg-[#111] p-1 animate-glitch" style={{ animationDuration: '5s' }}>
+      <div className="relative w-full aspect-square border-4 border-[#00ffff] shadow-[8px_8px_0px_0px_#ff00ff] bg-[#111] p-1">
         <div 
           className="w-full h-full bg-black relative"
           style={{
@@ -201,7 +201,7 @@ export function SnakeGame({ onScoreUpdate }: SnakeGameProps) {
           })}
 
           <div
-            className="z-10 bg-[#ff00ff] border border-black animate-pulse"
+            className="z-10 bg-[#ff00ff] border border-black"
             style={{
               gridColumn: food.x + 1,
               gridRow: food.y + 1,
@@ -211,7 +211,7 @@ export function SnakeGame({ onScoreUpdate }: SnakeGameProps) {
 
         {(!isPlaying && !isGameOver && score === 0) && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 z-30">
-            <h2 className="text-5xl font-bold text-[#00ffff] mb-6 glitch-text" data-text="EXECUTE">
+            <h2 className="text-5xl font-bold text-[#00ffff] mb-6">
               EXECUTE
             </h2>
             <button 
@@ -225,8 +225,8 @@ export function SnakeGame({ onScoreUpdate }: SnakeGameProps) {
         )}
 
         {isGameOver && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#ff00ff]/90 z-30 animate-tear">
-            <h2 className="text-6xl font-bold text-black mb-2 glitch-text" data-text="FATAL_ERR">
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#ff00ff]/90 z-30">
+            <h2 className="text-6xl font-bold text-black mb-2">
               FATAL_ERR
             </h2>
             <p className="text-black text-2xl mb-8 font-bold bg-[#00ffff] px-4 py-1">SIGSEGV AT {score}</p>
@@ -235,13 +235,13 @@ export function SnakeGame({ onScoreUpdate }: SnakeGameProps) {
               className="flex items-center gap-4 px-8 py-4 bg-black text-[#00ffff] text-2xl font-bold border-4 border-black hover:border-[#00ffff] transition-all hover:text-[#ff00ff]"
             >
               <RefreshCw className="w-8 h-8" />
-              REBOOT
+              RESTART
             </button>
           </div>
         )}
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-8 text-xl text-[#00ffff] bg-black px-4 py-2 border-2 border-[#ff00ff] animate-pulse">
+      <div className="mt-8 flex items-center justify-center gap-8 text-xl text-[#00ffff] bg-black px-4 py-2 border-2 border-[#ff00ff]">
         <span>[W][A][S][D] // INPUT</span>
       </div>
     </div>

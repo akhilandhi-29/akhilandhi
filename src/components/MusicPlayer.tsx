@@ -55,7 +55,7 @@ export function MusicPlayer({ onTrackChange }: MusicPlayerProps) {
   };
 
   return (
-    <div className="bg-black border-4 border-[#ff00ff] p-6 shadow-[8px_8px_0px_0px_#00ffff] flex flex-col sm:flex-row items-center gap-6 w-full max-w-2xl mx-auto animate-glitch" style={{ animationDuration: '4s' }}>
+    <div className="bg-black border-4 border-[#ff00ff] p-6 shadow-[8px_8px_0px_0px_#00ffff] flex flex-col sm:flex-row items-center gap-6 w-full max-w-2xl mx-auto">
       <audio
         ref={audioRef}
         src={currentTrack.url}
@@ -67,21 +67,21 @@ export function MusicPlayer({ onTrackChange }: MusicPlayerProps) {
         <img 
           src={currentTrack.cover} 
           alt="Album Cover" 
-          className={`relative w-full h-full object-cover mix-blend-luminosity opacity-80 ${isPlaying ? 'animate-tear' : 'filter grayscale'}`}
+          className={`relative w-full h-full object-cover mix-blend-luminosity opacity-80 ${isPlaying ? '' : 'filter grayscale'}`}
         />
         <div className="absolute inset-0 bg-[#ff00ff] mix-blend-color opacity-50 pointer-events-none"></div>
         {!isPlaying && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/60">
-             <Terminal className="w-10 h-10 text-[#00ffff] animate-pulse" />
+             <Terminal className="w-10 h-10 text-[#00ffff]" />
           </div>
         )}
       </div>
 
       <div className="flex-1 w-full flex flex-col justify-center text-center sm:text-left">
-        <h3 className="text-2xl sm:text-3xl font-bold text-[#00ffff] mb-1 line-clamp-1 glitch-text" data-text={currentTrack.title}>
+        <h3 className="text-2xl sm:text-3xl font-bold text-[#00ffff] mb-1 line-clamp-1">
           {currentTrack.title}
         </h3>
-        <p className="text-[#ff00ff] text-xl font-medium mb-4 uppercase tracking-widest animate-pulse">
+        <p className="text-[#ff00ff] text-xl font-medium mb-4 uppercase tracking-widest">
           &gt; {currentTrack.artist}
         </p>
 
@@ -111,7 +111,7 @@ export function MusicPlayer({ onTrackChange }: MusicPlayerProps) {
             <SkipForward className="w-6 h-6 fill-current" />
           </button>
 
-          <div className="w-1 h-8 bg-[#ff00ff] mx-2 animate-pulse"></div>
+          <div className="w-1 h-8 bg-[#ff00ff] mx-2"></div>
           
           <button 
             onClick={toggleMute}
